@@ -3,146 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample GitHub Pages Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            min-height: 100vh;
-        }
-
-        h1 {
-            color: #ffffff;
-            background-color: rgba(135, 206, 235, 0.8);
-            padding: 10px 20px;
-            border-radius: 8px;
-            z-index: 10;
-        }
-
-        p {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 8px;
-            max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            line-height: 1.6;
-            z-index: 10;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            z-index: 10;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: #f8f9fa;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Cloud styles */
-        .cloud {
-            position: absolute;
-            background: #FFFFFF;
-            border-radius: 50%;
-            box-shadow: -30px 20px 0 -10px #FFFFFF, 
-                        30px 20px 0 -10px #FFFFFF, 
-                        0px 30px 0 -10px #FFFFFF;
-        }
-
-        .cloud-1 {
-            width: 100px;
-            height: 50px;
-            top: 20%;
-            left: -100px;
-            animation: moveClouds 20s linear infinite;
-        }
-
-        .cloud-2 {
-            width: 150px;
-            height: 75px;
-            top: 40%;
-            left: -150px;
-            animation: moveClouds 25s linear infinite;
-        }
-
-        .cloud-3 {
-            width: 80px;
-            height: 40px;
-            top: 60%;
-            left: -80px;
-            animation: moveClouds 15s linear infinite;
-        }
-
-        /* Airplane styles */
-        .airplane {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 50px solid #d62828;
-            top: 50%;
-            left: -100px;
-            transform: rotate(45deg);
-            animation: flyAirplane 12s linear infinite;
-        }
-
-        .airplane::before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 20px;
-            background: #d62828;
-            top: -20px;
-            left: -25px;
-        }
-
-        @keyframes moveClouds {
-            0% {
-                left: -150px;
-            }
-            100% {
-                left: 110%;
-            }
-        }
-
-        @keyframes flyAirplane {
-            0% {
-                left: -100px;
-                top: 70%;
-            }
-            100% {
-                left: 110%;
-                top: 30%;
-            }
-        }
-    </style>
+    <meta name="description" content="A professional animated portfolio showcasing my skills, projects, and experience.">
+    <meta name="keywords" content="portfolio, web development, skills, projects, experience">
+    <meta name="author" content="Your Name">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-    <div class="airplane"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle">Toggle Theme</button>
+        </nav>
+    </header>
 
-    <div class="container">
-        <h1>Hi Welcome</h1>
-        <p>This is a sample website created to experiment with GitHub Pages. Feel free to explore and experiment with your own content.
-		<br>feel free to reachout to me - jesjesti007@gmail.com </b>
-		</p>
-    </div>
+    <section class="hero">
+        <h1>Your Name</h1>
+        <h2 class="typing-effect">Web Developer | Designer | Creator</h2>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Brief introduction about yourself.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>List of your skills.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Showcase of your projects.</p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <p>Your work experience and timeline.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>How to reach you.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
