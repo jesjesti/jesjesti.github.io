@@ -107,8 +107,13 @@
             >
           </li>
           <li>
-            <a href="#services"
-              ><i class="bi bi-rocket-takeoff navicon"></i> Projects</a
+            <a href="#projects"
+              ><i class="bi bi-rocket-takeoff navicon"></i> Projects
+            </a>
+          </li>
+          <li>
+            <a href="#github-projects"
+              ><i class="bi bi-github navicon"></i> GitHub</a
             >
           </li>
           <li>
@@ -1281,15 +1286,16 @@
       <!-- /Portfolio Section -->
 
       <!-- Services Section -->
-      <section id="services" class="services section">
+      <section id="github-projects" class="services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>Projects</h2>
+          <h2>GitHub Projects</h2>
           <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-            aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-            quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-            fugiat sit in iste officiis commodi quidem hic quas.
+            This section includes my public GitHub projects and contributions.
+            They cover areas like full-stack development, deployment with Docker
+            and Nginx, and database integration. Each project is a small step in
+            learning, experimenting, and improving my skills while sharing work
+            with the developer community.
           </p>
         </div>
         <!-- End Section Title -->
@@ -1507,11 +1513,11 @@
 
             <div class="col-lg-7">
               <form
-                action="forms/contact.php"
-                method="post"
                 class="php-email-form"
                 data-aos="fade-up"
                 data-aos-delay="200"
+                id="contactForm"
+                action="#"
               >
                 <div class="row gy-4">
                   <div class="col-md-6">
@@ -1542,7 +1548,7 @@
                       type="text"
                       class="form-control"
                       name="subject"
-                      id="subject-field"
+                      id="subject"
                       required=""
                     />
                   </div>
@@ -1553,18 +1559,12 @@
                       class="form-control"
                       name="message"
                       rows="10"
-                      id="message-field"
+                      id="body"
                       required=""
                     ></textarea>
                   </div>
 
                   <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
-
                     <button type="submit">Send Message</button>
                   </div>
                 </div>
@@ -1612,6 +1612,33 @@
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // prevent page reload
+
+          const name = encodeURIComponent(
+            document.getElementById("name-field").value
+          );
+          const email = encodeURIComponent(
+            document.getElementById("email-field").value
+          );
+          const subject = encodeURIComponent(
+            document.getElementById("subject").value
+          );
+          const body = encodeURIComponent(
+            document.getElementById("body").value
+          );
+
+          // Customize recipient email here 👇
+          const recipient = "jesjesti007@gmail.com";
+
+          const mailToLink = `mailto:${recipient}?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${body}`;
+
+          window.location.href = mailToLink;
+        });
+    </script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
   </body>
