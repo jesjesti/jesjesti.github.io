@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Use ELK stack for detailed logging in Spring Boot</title>
+    <meta
+      name="description"
+      content="A practical guide to using the ELK stack (Elasticsearch, Logstash, Kibana) for detailed logging in Spring Boot applications with examples and best practices."
+    />
+    <style>
+      :root {
+        --max: 900px;
+        --accent: #0f6;
+        --muted: #6b7280;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        line-height: 1.6;
+        color: #111;
+        background: #f7fafc;
+        padding: 32px;
+      }
+      .container {
+        max-width: var(--max);
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        overflow: hidden;
+      }
+      .hero {
+        position: relative;
+      }
+      .hero img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+      }
+      .inner {
+        padding: 28px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+      }
+      .lede {
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+      .meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      article h2 {
+        margin-top: 20px;
+      }
+      pre {
+        background: #0b1220;
+        color: #e6eef8;
+        padding: 14px;
+        border-radius: 8px;
+        overflow: auto;
+        font-size: 13px;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+          monospace;
+      }
+      .note {
+        background: #fffbea;
+        border-left: 4px solid #f6c90e;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 12px 0;
+      }
+      ul {
+        margin-left: 20px;
+      }
+      footer {
+        padding: 20px;
+        border-top: 1px solid #f1f5f9;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #0ea5a4;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <img
+          src="resources/elk-stack.png"
+          alt="ELK stack illustration"
+          style="
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            display: block;
+            background: #f7fafc;
+          "
+        />
+      </div>
+      <div class="inner">
+        <h1>Use ELK stack for detailed logging in Spring Boot</h1>
+        <p class="lede">
+          How to centralize, structure, and visualize Spring Boot logs using
+          Elasticsearch, Logstash, and Kibana — with configuration examples and
+          best practices.
+        </p>
+        <div class="meta">
+          By <strong>Your Name</strong> • Updated:
+          <!-- You can edit the date below -->
+          Sept 29, 2025
+        </div>
+
+        <article>
+          <h2>Overview</h2>
+          <p>
+            The ELK stack (Elasticsearch, Logstash, Kibana) is a common solution
+            for centralized logging. When paired with Spring Boot it enables
+            structured application logs (JSON), powerful searching and
+            aggregation, and rich dashboards for troubleshooting and analytics.
+          </p>
+
+          <h2>Why use ELK with Spring Boot?</h2>
+          <ul>
+            <li>Centralized logs from multiple services and hosts.</li>
+            <li>
+              Powerful full-text search and aggregations in Elasticsearch.
+            </li>
+            <li>
+              Structured JSON logs make filtering and metric extraction
+              reliable.
+            </li>
+            <li>
+              Kibana provides dashboards and alerting for operational
+              observability.
+            </li>
+          </ul>
+
+          <h2>High-level architecture</h2>
+          <p>
+            Typical flow: <strong>Spring Boot app</strong> → (JSON logs) →
+            <strong>Logstash / Filebeat</strong> →
+            <strong>Elasticsearch</strong> → <strong>Kibana</strong>.
+          </p>
+          <div class="note">
+            Two common options for shipping logs:
+            <ol>
+              <li>
+                Write JSON logs to files and use Filebeat to forward them to
+                Logstash/Elasticsearch.
+              </li>
+              <li>
+                Let application send logs directly to Logstash over TCP/HTTP
+                (less common in production because of buffering/reliability
+                reasons).
+              </li>
+            </ol>
+          </div>
+
+          <h2>Quick start with Docker Compose (ELK)</h2>
+          <p>
+            Run a local ELK for testing. This
+            <strong>is not</strong> production-ready but great for development.
+          </p>
+          <pre><code class="language-yaml"># docker-compose.yml
+version: '3.8'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    ports:
+      - 5044:5044 # beats
+      - 5000:5000 # tcp
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    ports:
+      - 5601:5601
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+volumes:
+  esdata:
+</code></pre>
+
+          <h2>Configure Spring Boot to emit JSON logs</h2>
+          <p>
+            Structured JSON logs are essential — they simplify parsing and
+            queries later in Kibana. Use
+            <code>logstash-logback-encoder</code> or <code>log4j2</code> JSON
+            layouts.
+          </p>
+
+          <h3>Maven dependency (logback encoder)</h3>
+          <pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;net.logstash.logback&lt;/groupId&gt;
+  &lt;artifactId&gt;logstash-logback-encoder&lt;/artifactId&gt;
+  &lt;version&gt;7.4&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+
+          <h3>Sample <code>logback-spring.xml</code></h3>
+          <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;include resource="org/springframework/boot/logging/logback/base.xml"/&gt;
+
+  &lt;appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"&gt;
+    &lt;encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder"&gt;
+      &lt;providers&gt;
+        &lt;timestamp/&gt;
+        &lt;loggerName/&gt;
+        &lt;pattern&gt;
+          &lt;pattern&gt;{"thread":"%thread","level":"%level"}&lt;/pattern&gt;
+        &lt;/pattern&gt;
+        &lt;logLevel/&gt;
+        &lt;message/&gt;
+        &lt;stackTrace/&gt;
+        &lt;mappedDiagnosticContext/&gt;
+      &lt;/providers&gt;
+    &lt;/encoder&gt;
+  &lt;/appender&gt;
+
+  &lt;root level="INFO"&gt;
+    &lt;appender-ref ref="STDOUT"/&gt;
+  &lt;/root&gt;
+&lt;/configuration&gt;</code></pre>
+
+          <h2>Ship logs: Filebeat &amp; Logstash pipeline</h2>
+          <p>
+            Write to a rotating log file. Filebeat tails it and sends events to
+            Logstash where you parse, enrich, and forward to Elasticsearch.
+          </p>
+
+          <h3>Example Logstash pipeline (logstash/pipeline/logstash.conf)</h3>
+          <pre><code class="language-plain">input {
+  beats { port => 5044 }
+}
+
+filter {
+  json { source => "message" target => "json" }
+  if [json] { mutate { add_field => { "app" => "my-spring-app" } } }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://elasticsearch:9200"]
+    index => "spring-logs-%{+yyyy.MM.dd}"
+  }
+}
+</code></pre>
+
+          <h2>Spring Boot example properties (logging)</h2>
+          <pre><code class="language-properties"># application.yml (or application.properties)
+logging:
+  file:
+    name: ./logs/app.log
+  level:
+    root: INFO
+    com.example: DEBUG
+
+# If you want to include MDC fields in logs, set them in your code before logging
+</code></pre>
+
+          <h2>Adding contextual information (MDC)</h2>
+          <p>
+            Use <code>org.slf4j.MDC</code> to add request-specific fields such
+            as <code>requestId</code>, <code>userId</code>, or
+            <code>traceId</code>. These fields will appear in the JSON and can
+            be used as filters or terms in Kibana.
+          </p>
+          <pre><code class="language-java">// Example filter that sets MDC values
+public class MdcFilter extends OncePerRequestFilter {
+  @Override
+  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+      throws ServletException, IOException {
+    try {
+      MDC.put("requestId", UUID.randomUUID().toString());
+      filterChain.doFilter(request, response);
+    } finally {
+      MDC.clear();
+    }
+  }
+}
+</code></pre>
+
+          <h2>Searching and visualizing in Kibana</h2>
+          <p>
+            Once logs land in Elasticsearch, use Kibana to create index patterns
+            (e.g., <code>spring-logs-*</code>), discover logs, create
+            visualizations, and build dashboards for SLOs, error rates, or slow
+            endpoints.
+          </p>
+
+          <h2>Best practices</h2>
+          <ul>
+            <li>Always emit structured logs (JSON) for ease of parsing.</li>
+            <li>Use MDC for contextual fields — traceId, requestId, userId.</li>
+            <li>
+              Avoid logging sensitive data (PII, secrets) — filter them out in
+              Logstash if necessary.
+            </li>
+            <li>
+              Use rolling files and retention policies for Elasticsearch indices
+              (curator or ILM policies).
+            </li>
+            <li>
+              Monitor Elasticsearch health and resource usage: memory and disk
+              are critical.
+            </li>
+            <li>
+              Use log levels carefully: DEBUG in development, INFO/WARN/ERROR in
+              production.
+            </li>
+          </ul>
+
+          <h2>Troubleshooting tips</h2>
+          <ul>
+            <li>
+              If logs are missing, check Filebeat or Logstash pipelines’ parsing
+              errors and dead-letter queues.
+            </li>
+            <li>
+              Validate JSON by printing a few lines from the log file and
+              running <code>jq .</code>.
+            </li>
+            <li>
+              Check Elasticsearch index templates and mappings; adjust mappings
+              for long-term storage.
+            </li>
+          </ul>
+
+          <h2>Conclusion</h2>
+          <p>
+            Integrating ELK with Spring Boot provides a robust logging and
+            observability platform. Start small (local Docker stack),
+            standardize on JSON logs, add contextual MDC fields, and iterate —
+            tune index lifecycles and monitoring before scaling to production.
+          </p>
+        </article>
+
+        <footer>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              Want a downloadable Docker-ready repo for this setup? Please find
+              it <a href="#">here</a>.
+            </div>
+            <div>
+              <a class="btn" href="#" id="shareBtn">Share</a>
+              <span id="copyMsg" style="margin-left: 10px; display: none"
+                >Link copied!</span
+              >
+            </div>
+            <script>
+              document
+                .getElementById("shareBtn")
+                .addEventListener("click", function (e) {
+                  e.preventDefault();
+                  navigator.clipboard
+                    .writeText(window.location.href)
+                    .then(function () {
+                      var msg = document.getElementById("copyMsg");
+                      msg.style.display = "inline";
+                      setTimeout(function () {
+                        msg.style.display = "none";
+                      }, 1500);
+                    });
+                });
+            </script>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
