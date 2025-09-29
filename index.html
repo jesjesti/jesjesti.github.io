@@ -907,392 +907,353 @@
           </p>
         </div>
         <!-- End Section Title -->
-
-        <div class="container">
-          <div
-            class="isotope-layout"
-            data-default-filter="*"
-            data-layout="masonry"
-            data-sort="original-order"
+        <!-- Portfolio Tabs Section -->
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <ul
+            class="nav nav-tabs mb-4 justify-content-center"
+            id="portfolioTabs"
+            role="tablist"
           >
-            <ul
-              class="portfolio-filters isotope-filters"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <li data-filter=".filter-app">Domain Expertise</li>
-              <li data-filter=".filter-product">Photography</li>
-              <li data-filter=".filter-branding">Books</li>
-              <li data-filter=".filter-books">Blog</li>
-            </ul>
-            <!-- End Portfolio Filters -->
-
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="domain-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#domain"
+                type="button"
+                role="tab"
+                aria-controls="domain"
+                aria-selected="true"
+              >
+                <i class="bi bi-diagram-3"></i> Domain Expertise
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="photo-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#photo"
+                type="button"
+                role="tab"
+                aria-controls="photo"
+                aria-selected="false"
+              >
+                <i class="bi bi-camera"></i> Photography
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="books-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#books"
+                type="button"
+                role="tab"
+                aria-controls="books"
+                aria-selected="false"
+              >
+                <i class="bi bi-book"></i> Books
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="blog-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#blog"
+                type="button"
+                role="tab"
+                aria-controls="blog"
+                aria-selected="false"
+              >
+                <i class="bi bi-journal-text"></i> Blog
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="portfolioTabsContent">
+            <!-- Domain Expertise Tab -->
             <div
-              class="row gy-4 isotope-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
+              class="tab-pane fade show active"
+              id="domain"
+              role="tabpanel"
+              aria-labelledby="domain-tab"
             >
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/app-1.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>App 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/app-1.jpg"
-                      title="App 1"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Example Domain Tile -->
+                <div class="col">
+                  <div class="card h-100 text-center border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/app-1.jpg"
+                      class="card-img-top"
+                      alt="Healthcare"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Healthcare</h5>
+                      <p class="card-text">
+                        Experience in building secure, scalable healthcare
+                        platforms including EHR and telemedicine solutions.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/product-1.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Product 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/product-1.jpg"
-                      title="Product 1"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                <div class="col">
+                  <div class="card h-100 text-center border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/app-2.jpg"
+                      class="card-img-top"
+                      alt="E-commerce"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">E-commerce</h5>
+                      <p class="card-text">
+                        Developed robust e-commerce and marketplace solutions
+                        with seamless user experience and integrations.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/branding-1.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Branding 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/branding-1.jpg"
-                      title="Branding 1"
-                      data-gallery="portfolio-gallery-branding"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                <div class="col">
+                  <div class="card h-100 text-center border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/app-3.jpg"
+                      class="card-img-top"
+                      alt="Retail POS"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Retail POS</h5>
+                      <p class="card-text">
+                        Designed and implemented POS systems for retail,
+                        focusing on billing, inventory, and accounting.
+                      </p>
+                    </div>
                   </div>
                 </div>
+                <!-- Add more tiles as needed -->
               </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/books-1.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Books 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/books-1.jpg"
-                      title="Branding 1"
-                      data-gallery="portfolio-gallery-book"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/app-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/app-2.jpg"
-                      title="App 2"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/product-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Product 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/product-2.jpg"
-                      title="Product 2"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/branding-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Branding 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/branding-2.jpg"
-                      title="Branding 2"
-                      data-gallery="portfolio-gallery-branding"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/books-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Books 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/books-2.jpg"
-                      title="Branding 2"
-                      data-gallery="portfolio-gallery-book"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/app-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>App 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/app-3.jpg"
-                      title="App 3"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/product-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Product 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/product-3.jpg"
-                      title="Product 3"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/branding-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Branding 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/branding-3.jpg"
-                      title="Branding 2"
-                      data-gallery="portfolio-gallery-branding"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/books-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Books 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a
-                      href="assets/img/portfolio/books-3.jpg"
-                      title="Branding 3"
-                      data-gallery="portfolio-gallery-book"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
-                      class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
             </div>
-            <!-- End Portfolio Container -->
+            <!-- Photography Tab -->
+            <div
+              class="tab-pane fade"
+              id="photo"
+              role="tabpanel"
+              aria-labelledby="photo-tab"
+            >
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                  <div class="portfolio-content h-100">
+                    <img
+                      src="assets/img/portfolio/product-1.jpg"
+                      class="img-fluid rounded"
+                      alt="Photography 1"
+                    />
+                    <div class="portfolio-info">
+                      <h4>Mountain View</h4>
+                      <p>Captured during a trek in the Western Ghats.</p>
+                      <a
+                        href="assets/img/portfolio/product-1.jpg"
+                        data-gallery="portfolio-gallery-photo"
+                        class="glightbox preview-link"
+                        title="Mountain View"
+                        ><i class="bi bi-zoom-in"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <div class="portfolio-content h-100">
+                    <img
+                      src="assets/img/portfolio/product-2.jpg"
+                      class="img-fluid rounded"
+                      alt="Photography 2"
+                    />
+                    <div class="portfolio-info">
+                      <h4>Forest Trail</h4>
+                      <p>Exploring the lush green forests of Kerala.</p>
+                      <a
+                        href="assets/img/portfolio/product-2.jpg"
+                        data-gallery="portfolio-gallery-photo"
+                        class="glightbox preview-link"
+                        title="Forest Trail"
+                        ><i class="bi bi-zoom-in"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <div class="portfolio-content h-100">
+                    <img
+                      src="assets/img/portfolio/product-3.jpg"
+                      class="img-fluid rounded"
+                      alt="Photography 3"
+                    />
+                    <div class="portfolio-info">
+                      <h4>River Side</h4>
+                      <p>Serene river landscape from a recent trip.</p>
+                      <a
+                        href="assets/img/portfolio/product-3.jpg"
+                        data-gallery="portfolio-gallery-photo"
+                        class="glightbox preview-link"
+                        title="River Side"
+                        ><i class="bi bi-zoom-in"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more images as needed -->
+              </div>
+            </div>
+            <!-- Books Tab -->
+            <div
+              class="tab-pane fade"
+              id="books"
+              role="tabpanel"
+              aria-labelledby="books-tab"
+            >
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Example Book Card -->
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/books-1.jpg"
+                      class="card-img-top"
+                      alt="Book 1"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Atomic Habits</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">James Clear</h6>
+                      <p class="card-text">
+                        A practical guide to building good habits and breaking
+                        bad ones, with actionable strategies for lasting change.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/books-2.jpg"
+                      class="card-img-top"
+                      alt="Book 2"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Sapiens: A Brief History of Humankind
+                      </h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Yuval Noah Harari
+                      </h6>
+                      <p class="card-text">
+                        Explores the history and impact of Homo sapiens, from
+                        ancient times to the present, in a compelling narrative.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/books-3.jpg"
+                      class="card-img-top"
+                      alt="Book 3"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">The Pragmatic Programmer</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Andrew Hunt, David Thomas
+                      </h6>
+                      <p class="card-text">
+                        A classic book for software engineers, offering tips and
+                        philosophies for effective, pragmatic software
+                        development.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more books as needed -->
+              </div>
+            </div>
+            <!-- Blog Tab -->
+            <div
+              class="tab-pane fade"
+              id="blog"
+              role="tabpanel"
+              aria-labelledby="blog-tab"
+            >
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Example Blog Card -->
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/branding-1.jpg"
+                      class="card-img-top"
+                      alt="Blog 1"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Microservices: Best Practices</h5>
+                      <p class="card-text">
+                        A deep dive into designing scalable, maintainable
+                        microservices architectures for modern applications.
+                      </p>
+                      <a
+                        href="https://yourblog.com/microservices-best-practices"
+                        target="_blank"
+                        class="stretched-link text-primary"
+                      >
+                        <i class="bi bi-box-arrow-up-right"></i> Read more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/branding-2.jpg"
+                      class="card-img-top"
+                      alt="Blog 2"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Getting Started with React</h5>
+                      <p class="card-text">
+                        A beginner-friendly guide to building your first React
+                        application, covering core concepts and setup.
+                      </p>
+                      <a
+                        href="https://yourblog.com/getting-started-with-react"
+                        target="_blank"
+                        class="stretched-link text-primary"
+                      >
+                        <i class="bi bi-box-arrow-up-right"></i> Read more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <img
+                      src="assets/img/portfolio/branding-3.jpg"
+                      class="card-img-top"
+                      alt="Blog 3"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">DevOps for Developers</h5>
+                      <p class="card-text">
+                        An overview of DevOps principles, tools, and workflows
+                        to streamline software delivery and operations.
+                      </p>
+                      <a
+                        href="https://yourblog.com/devops-for-developers"
+                        target="_blank"
+                        class="stretched-link text-primary"
+                      >
+                        <i class="bi bi-box-arrow-up-right"></i> Read more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more blog cards as needed -->
+              </div>
+            </div>
           </div>
         </div>
       </section>
