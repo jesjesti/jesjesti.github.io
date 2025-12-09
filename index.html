@@ -36,6 +36,27 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
+    <style>
+      /* hide resume details in-page; details shown via modal */
+      .resume-item > ul {
+        display: none;
+      }
+      .resume-item .view-details {
+        margin-bottom: 15px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: #3f7edd;
+        cursor: pointer;
+      }
+      .resume-item .view-details:hover {
+        text-decoration: underline;
+      }
+      /* small modal body tweaks for smooth appearance */
+      #resumeDetailModal .modal-body ul {
+        margin-bottom: 0;
+      }
+    </style>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -52,7 +73,6 @@
       gtag("config", "G-GQB506EJ1N");
     </script>
   </head>
-
   <body class="index-page">
     <header id="header" class="header dark-background d-flex flex-column">
       <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -528,19 +548,6 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="resume-title">Sumary</h3>
-
-              <div class="resume-item pb-0">
-                <h4>Jestin Wilson</h4>
-
-                <ul>
-                  <li>Trivandrum, Kerala, India, 695582</li>
-                  <li>+91 7012164414</li>
-                  <li>jesjesti007@gmail.com</li>
-                </ul>
-              </div>
-              <!-- Edn Resume Item -->
-
               <h3 class="resume-title">Education</h3>
               <div class="resume-item">
                 <h4>Diploma in Computer Engineering</h4>
@@ -2235,5 +2242,76 @@
     </script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <!-- Resume Details Modal (Bootstrap) -->
+    <div
+      class="modal fade"
+      id="resumeDetailModal"
+      tabindex="-1"
+      aria-labelledby="resumeDetailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title" id="resumeModalTitle">Title</h5>
+              <small id="resumeModalSubtitle" class="text-muted"></small>
+              <div id="resumeModalCompany" class="mt-1"></div>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="resumeModalBody">
+            <!-- details injected here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add "View details" button to each resume-item and show modal on click
+      document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll(".resume-item");
+        items.forEach((item) => {
+          const details = item.querySelector("ul");
+          if (!details) return; // nothing to show
+
+          // Append "View details" button
+          const btn = document.createElement("button");
+          btn.className = "view-details";
+          btn.textContent = "View details";
+          item.appendChild(btn);
+
+          btn.addEventListener("click", () => {
+            const title = item.querySelector("h4")?.innerText || "";
+            const dates = item.querySelector("h5")?.innerText || "";
+            const company = item.querySelector("p em")?.innerHTML || "";
+            const detailsHtml = details.outerHTML;
+
+            document.getElementById("resumeModalTitle").innerText = title;
+            document.getElementById("resumeModalSubtitle").innerText = dates;
+            document.getElementById("resumeModalCompany").innerHTML = company;
+            document.getElementById("resumeModalBody").innerHTML = detailsHtml;
+
+            const modalEl = document.getElementById("resumeDetailModal");
+            const bsModal = new bootstrap.Modal(modalEl);
+            bsModal.show();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
