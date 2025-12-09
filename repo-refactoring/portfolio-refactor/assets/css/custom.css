@@ -1,0 +1,20 @@
+.resume-item > ul {
+  display: none;
+}
+
+.resume-item .view-details {
+  margin-bottom: 15px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #3f7edd;
+  cursor: pointer;
+}
+
+.resume-item .view-details:hover {
+  text-decoration: underline;
+}
+
+#resumeDetailModal .modal-body ul {
+  margin-bottom: 0;
+}
