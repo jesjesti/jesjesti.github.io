@@ -56,6 +56,25 @@
       #resumeDetailModal .modal-body ul {
         margin-bottom: 0;
       }
+
+      /* Major Projects: keep only title + short description in card; rest shown in modal */
+      .project-extra {
+        display: none;
+      }
+      .card .view-project {
+        margin-top: 12px;
+        padding: 0.375rem 0.75rem;
+      }
+      /* Smooth modal transition (slide + fade) */
+      .modal.fade .modal-dialog {
+        transform: translateY(-20px);
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        opacity: 0;
+      }
+      .modal.show .modal-dialog {
+        transform: translateY(0);
+        opacity: 1;
+      }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -1764,82 +1783,90 @@
                     services and ensures secure, scalable, and efficient
                     performance across the stack.
                   </p>
-                  <p>
-                    <strong>Domain:</strong> Marketing Analytics, Data
-                    Exploration
-                  </p>
-                  <p>
-                    <strong>Technologies:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Backend:</strong> Spring Boot with JWT-based
-                      authentication &amp; authorization
-                    </li>
-                    <li>
-                      <strong>Frontend:</strong> React (latest standards and
-                      best practices)
-                    </li>
-                    <li>
-                      <strong>Database &amp; Storage:</strong> MySQL (AWS RDS),
-                      AWS S3
-                    </li>
-                    <li>
-                      <strong>Deployment &amp; CI/CD:</strong> AWS EC2, Docker,
-                      Jenkins
-                    </li>
-                    <li>
-                      <strong>Search &amp; Indexing:</strong> ElasticSearch
-                    </li>
-                    <li>
-                      <strong>AI &amp; NLP:</strong> LangChain, OpenAI GPT-4o,
-                      LangSmith monitoring, SQL Agents for database queries
-                    </li>
-                    <li>
-                      <strong>Third-party Integrations:</strong> Google Drive
-                      &amp; Slides API
-                    </li>
-                    <li>
-                      <strong>Other Tools:</strong> Swagger for API
-                      documentation, Jira for project tracking
-                    </li>
-                  </ul>
-                  <p>
-                    <strong>Roles & Responsibilities:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      Designed the overall system architecture ensuring
-                      scalability, security, and maintainability
-                    </li>
-                    <li>
-                      Implemented authentication and authorization mechanisms
-                      using JWT
-                    </li>
-                    <li>
-                      Integrated ElasticSearch for file-based data search and
-                      LangChain + OpenAI for NLP-based database queries
-                    </li>
-                    <li>
-                      Led deployment strategy on AWS using Docker and Jenkins
-                      for automated CI/CD pipelines
-                    </li>
-                    <li>
-                      Managed integration with Google Drive and Slides API for
-                      file creation and management
-                    </li>
-                    <li>
-                      Coordinated with the development team to enforce best
-                      practices, code quality, and documentation
-                    </li>
-                    <li>
-                      Oversaw project lifecycle from planning to delivery while
-                      ensuring alignment with business requirements
-                    </li>
-                  </ul>
+
+                  <!-- Hidden full details shown in modal -->
+                  <div class="project-extra">
+                    <p>
+                      <strong>Domain:</strong> Marketing Analytics, Data
+                      Exploration
+                    </p>
+                    <p><strong>Technologies:</strong></p>
+                    <ul>
+                      <li>
+                        <strong>Backend:</strong> Spring Boot with JWT-based
+                        authentication & authorization
+                      </li>
+                      <li>
+                        <strong>Frontend:</strong> React (latest standards and
+                        best practices)
+                      </li>
+                      <li>
+                        <strong>Database & Storage:</strong> MySQL (AWS RDS),
+                        AWS S3
+                      </li>
+                      <li>
+                        <strong>Deployment &amp; CI/CD:</strong> AWS EC2,
+                        Docker, Jenkins
+                      </li>
+                      <li>
+                        <strong>Search &amp; Indexing:</strong> ElasticSearch
+                      </li>
+                      <li>
+                        <strong>AI &amp; NLP:</strong> LangChain, OpenAI GPT-4o,
+                        LangSmith monitoring, SQL Agents for database queries
+                      </li>
+                      <li>
+                        <strong>Third-party Integrations:</strong> Google Drive
+                        &amp; Slides API
+                      </li>
+                      <li>
+                        <strong>Other Tools:</strong> Swagger for API
+                        documentation, Jira for project tracking
+                      </li>
+                    </ul>
+                    <p><strong>Roles & Responsibilities:</strong></p>
+                    <ul>
+                      <li>
+                        Designed the overall system architecture ensuring
+                        scalability, security, and maintainability
+                      </li>
+                      <li>
+                        Implemented authentication and authorization mechanisms
+                        using JWT
+                      </li>
+                      <li>
+                        Integrated ElasticSearch for file-based data search and
+                        LangChain + OpenAI for NLP-based database queries
+                      </li>
+                      <li>
+                        Led deployment strategy on AWS using Docker and Jenkins
+                        for automated CI/CD pipelines
+                      </li>
+                      <li>
+                        Managed integration with Google Drive and Slides API for
+                        file creation and management
+                      </li>
+                      <li>
+                        Coordinated with the development team to enforce best
+                        practices, code quality, and documentation
+                      </li>
+                      <li>
+                        Oversaw project lifecycle from planning to delivery
+                        while ensuring alignment with business requirements
+                      </li>
+                    </ul>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary view-project"
+                    type="button"
+                  >
+                    View more...
+                  </button>
                 </div>
               </div>
             </div>
+            <!-- /Project 1 -->
+            <!-- Project 2 -->
             <div class="col-lg-6">
               <div class="card h-100 shadow-sm border-0">
                 <img
@@ -1857,53 +1884,73 @@
                     a seamless and engaging experience for buyers when exploring
                     and purchasing items on eBay.
                   </p>
-                  <p><strong>Domain:</strong> E-commerce, Online Marketplace</p>
-                  <p>
-                    <strong>Technologies:</strong>
-                  </p>
+
+                  <div class="project-extra">
+                    <p>
+                      <strong>Domain:</strong> E-commerce, Online Marketplace
+                    </p>
+
+                    <p><strong>Technologies:</strong></p>
+
+                    <ul>
+                      <li><strong>Backend:</strong> Java, Spring Boot</li>
+
+                      <li><strong>Frontend:</strong> Marko.js</li>
+
+                      <li><strong>Architecture:</strong> Microservices</li>
+                      <li><strong>Testing:</strong> JUnit, TestNG</li>
+                      <li>
+                        <strong>Other Tools:</strong> eBay internal services,
+                        tools, and development ecosystem
+                      </li>
+                    </ul>
+                    <p>
+                      <strong>Roles & Responsibilities:</strong>
+                    </p>
+                    <ul>
+                      <li>
+                        Designed, developed, and enhanced features within the
+                        eBay ViewItem platform to improve buyer experience
+                      </li>
+
+                      <li>
+                        Collaborated with cross-functional teams to ensure
+                        integration with other eBay services and platforms
+                      </li>
+
+                      <li>
+                        Implemented microservice-based solutions to improve
+                        scalability and maintainability
+                      </li>
+
+                      <li>
+                        Ensured code quality and reliability through unit
+                        testing and automation with JUnit and TestNG
+                      </li>
+                      <li>
+                        Provided ongoing support, debugging, and optimization to
+                        maintain a smooth buyer journey
+                      </li>
+                      <li>
+                        Contributed to continuous improvements by adopting
+                        eBay’s internal tools and best practices
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    class="btn btn-outline-primary view-project"
+                    type="button"
                   >
-                  <ul>
-                    <li><strong>Backend:</strong> Java, Spring Boot</li>
-                    <li><strong>Frontend:</strong> Marko.js</li>
-                    <li><strong>Architecture:</strong> Microservices</li>
-                    <li><strong>Testing:</strong> JUnit, TestNG</li>
-                    <li>
-                      <strong>Other Tools:</strong> eBay internal services,
-                      tools, and development ecosystem
-                    </li>
-                  </ul>
-                  <p>
-                    <strong>Roles & Responsibilities:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      Designed, developed, and enhanced features within the eBay
-                      ViewItem platform to improve buyer experience
-                    </li>
-                    <li>
-                      Collaborated with cross-functional teams to ensure
-                      integration with other eBay services and platforms
-                    </li>
-                    <li>
-                      Implemented microservice-based solutions to improve
-                      scalability and maintainability
-                    </li>
-                    <li>
-                      Ensured code quality and reliability through unit testing
-                      and automation with JUnit and TestNG
-                    </li>
-                    <li>
-                      Provided ongoing support, debugging, and optimization to
-                      maintain a smooth buyer journey
-                    </li>
-                    <li>
-                      Contributed to continuous improvements by adopting eBay’s
-                      internal tools and best practices
-                    </li>
-                  </ul>
+                    View more...
+                  </button>
                 </div>
               </div>
             </div>
+
+            <!-- /Project 2 -->
+
+            <!-- Project 3 -->
             <div class="col-lg-6">
               <div class="card h-100 shadow-sm border-0">
                 <img
@@ -1923,65 +1970,83 @@
                     to store, retrieve, and manage patient medical records for
                     future use.
                   </p>
-                  <p>
-                    <strong>Domain:</strong> Healthcare, Hospital Management
-                  </p>
-                  <p>
-                    <strong>Technologies:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Backend:</strong> Java (Spring), Node.js, PHP,
-                      Java Server Pages (JSP)
-                    </li>
-                    <li>
-                      <strong>Frontend:</strong> Angular, React, HTML, CSS,
-                      JavaScript
-                    </li>
-                    <li>
-                      <strong>Database &amp; Storage:</strong> PostgreSQL (with
-                      SQL stored procedures)
-                    </li>
-                    <li>
-                      <strong>Deployment &amp; CI/CD:</strong> AWS EC2, Docker,
-                      Jenkins
-                    </li>
-                    <li><strong>Reporting:</strong> Jasper Reports</li>
-                    <li><strong>Caching & Messaging:</strong> Redis, Kafka</li>
-                  </ul>
-                  <p>
-                    <strong>Roles & Responsibilities:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      Developed user interfaces using HTML, CSS, and JavaScript
-                      for responsive and intuitive design
-                    </li>
-                    <li>
-                      Built and maintained web services using both Java and
-                      Node.js
-                    </li>
-                    <li>
-                      Designed and optimized SQL stored procedures in PostgreSQL
-                      for efficient data handling
-                    </li>
-                    <li>
-                      Integrated REST APIs between client and server for
-                      seamless communication
-                    </li>
-                    <li>
-                      Managed integration with Google Drive and Slides API for
-                      file creation and management
-                    </li>
-                    <li>
-                      Contributed to the overall system integration, ensuring
-                      compliance with EHR standards and scalability of the
-                      solution
-                    </li>
-                  </ul>
+                  <div class="project-extra">
+                    <p>
+                      <strong>Domain:</strong> Healthcare, Hospital Management
+                    </p>
+
+                    <p><strong>Technologies:</strong></p>
+
+                    <ul>
+                      <li>
+                        <strong>Backend:</strong> Java (Spring), Node.js, PHP,
+                        Java Server Pages (JSP)
+                      </li>
+
+                      <li><strong>Frontend:</strong> Angular, React</li>
+
+                      <li>
+                        <strong>Frontend:</strong> Angular, React, HTML, CSS,
+                        JavaScript
+                      </li>
+                      <li>
+                        <strong>Database &amp; Storage:</strong> PostgreSQL
+                        (with SQL stored procedures)
+                      </li>
+                      <li>
+                        <strong>Deployment &amp; CI/CD:</strong> AWS EC2,
+                        Docker, Jenkins
+                      </li>
+                      <li><strong>Reporting:</strong> Jasper Reports</li>
+                      <li>
+                        <strong>Caching & Messaging:</strong> Redis, Kafka
+                      </li>
+                    </ul>
+
+                    <p><strong>Roles & Responsibilities:</strong></p>
+
+                    <ul>
+                      <li>
+                        Developed user interfaces using HTML, CSS, and
+                        JavaScript for responsive and intuitive design
+                      </li>
+                      <li>
+                        Built and maintained web services using both Java and
+                        Node.js
+                      </li>
+                      <li>
+                        Designed and optimized SQL stored procedures in
+                        PostgreSQL for efficient data handling
+                      </li>
+                      <li>
+                        Integrated REST APIs between client and server for
+                        seamless communication
+                      </li>
+                      <li>
+                        Managed integration with Google Drive and Slides API for
+                        file creation and management
+                      </li>
+                      <li>
+                        Contributed to the overall system integration, ensuring
+                        compliance with EHR standards and scalability of the
+                        solution
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    class="btn btn-outline-primary view-project"
+                    type="button"
+                  >
+                    View more...
+                  </button>
                 </div>
               </div>
             </div>
+
+            <!-- /Project 3 -->
+
+            <!-- Project 4 -->
             <div class="col-lg-6">
               <div class="card h-100 shadow-sm border-0">
                 <img
@@ -2000,51 +2065,67 @@
                     of use, rapid onboarding, and enhanced security for end
                     users.
                   </p>
-                  <p><strong>Domain:</strong> Retail, Point of Sale (POS)</p>
-                  <p>
-                    <strong>Technologies:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Backend:</strong> Java (Spring Boot), Node.js, PHP
-                    </li>
-                    <li><strong>Frontend:</strong> React.js</li>
-                    <li><strong>Database:</strong> MySQL, MongoDB</li>
-                    <li><strong>Authentication:</strong> JWT</li>
-                    <li><strong>ORM:</strong> Hibernate</li>
-                    <li><strong>Architecture:</strong> Microservices</li>
-                  </ul>
-                  <p>
-                    <strong>Roles & Responsibilities:</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      Architected and implemented backend services and database
-                      schemas.
-                    </li>
-                    <li>
-                      Developed RESTful APIs and integrated them with
-                      client-facing applications.
-                    </li>
-                    <li>
-                      Engineered secure authentication mechanisms utilizing JWT.
-                    </li>
-                    <li>
-                      Designed and deployed microservices to address modular
-                      business requirements.
-                    </li>
-                    <li>
-                      Coordinated and collaborated across all phases of
-                      development and deployment.
-                    </li>
-                    <li>
-                      Built web services from the ground up and integrated
-                      third-party solutions such as payment gateways.
-                    </li>
-                  </ul>
+                  <div class="project-extra">
+                    <p><strong>Domain:</strong> Retail, Point of Sale (POS)</p>
+
+                    <p><strong>Technologies:</strong></p>
+
+                    <ul>
+                      <li>
+                        <strong>Backend:</strong> Java (Spring Boot), Node.js,
+                        PHP
+                      </li>
+
+                      <li><strong>Frontend:</strong> React.js</li>
+
+                      <li><strong>Database:</strong> MySQL, MongoDB</li>
+                      <li><strong>Authentication:</strong> JWT</li>
+                      <li><strong>ORM:</strong> Hibernate</li>
+                      <li><strong>Architecture:</strong> Microservices</li>
+                    </ul>
+
+                    <p><strong>Roles & Responsibilities:</strong></p>
+
+                    <ul>
+                      <li>
+                        Architected and implemented backend services and
+                        database schemas.
+                      </li>
+
+                      <li>
+                        Developed RESTful APIs and integrated them with
+                        client-facing applications.
+                      </li>
+                      <li>
+                        Engineered secure authentication mechanisms utilizing
+                        JWT.
+                      </li>
+                      <li>
+                        Designed and deployed microservices to address modular
+                        business requirements.
+                      </li>
+                      <li>
+                        Coordinated and collaborated across all phases of
+                        development and deployment.
+                      </li>
+                      <li>
+                        Built web services from the ground up and integrated
+                        third-party solutions such as payment gateways.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    class="btn btn-outline-primary view-project"
+                    type="button"
+                  >
+                    View more...
+                  </button>
                 </div>
               </div>
             </div>
+
+            <!-- /Project 4 -->
           </div>
         </div>
       </section>
@@ -2423,6 +2504,41 @@
       </div>
     </div>
 
+    <!-- Project Details Modal -->
+    <div
+      class="modal fade"
+      id="projectDetailModal"
+      tabindex="-1"
+      aria-labelledby="projectDetailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalTitle">Project</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="projectModalBody">
+            <!-- content injected -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Add "View details" button to each resume-item and show modal on click
       document.addEventListener("DOMContentLoaded", function () {
@@ -2449,6 +2565,29 @@
             document.getElementById("resumeModalBody").innerHTML = detailsHtml;
 
             const modalEl = document.getElementById("resumeDetailModal");
+            const bsModal = new bootstrap.Modal(modalEl);
+            bsModal.show();
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".view-project").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const cardBody = btn.closest(".card-body");
+            const title = cardBody.querySelector("h5")?.innerText || "";
+            const shortDesc =
+              cardBody.querySelector(".card-text")?.innerText || "";
+            const extra =
+              cardBody.querySelector(".project-extra")?.innerHTML || "";
+
+            // assemble modal content
+            const modalBody = `<p class="mb-2"><em>${shortDesc}</em></p>${extra}`;
+
+            document.getElementById("projectModalTitle").innerText = title;
+            document.getElementById("projectModalBody").innerHTML = modalBody;
+
+            const modalEl = document.getElementById("projectDetailModal");
             const bsModal = new bootstrap.Modal(modalEl);
             bsModal.show();
           });
